@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- 自动扫描注解的bean --> 
+    <context:component-scan base-package="com.product" />
+    
+    <!-- 开启aspectj自动注解 ，自动为spring容器中那些配置@aspectJ切面的bean创建代理，织入切面（默认为false，表示使用jdk动态代理织入增强，为true
+    	时表示使用CGLib动态代理技术织入增强。需要-->
+    <!-- <aop:aspectj-autoproxy proxy-target-class="true" /> -->
+	    
+    <!-- 配置文件加载 -->
+    <!-- <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="order" value="1" />
+        <property name="ignoreUnresolvablePlaceholders" value="true" />
+        <property name="locations">
+            <list>
+            	要是有多个配置文件，只需在这里继续添加即可
+                <value>classpath:props/jdbc.properties</value>
+            </list>
+        </property>
+    </bean> -->
+    
+    <!-- mybatis相关配置，可以直接配置在这里，也可以写成其他文件夹引入 -->
+    <!-- <import resource="classpath:springmvc/spring-mybatis.xml" />
+     -->
+</beans>
